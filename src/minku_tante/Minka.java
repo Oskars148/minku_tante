@@ -28,7 +28,7 @@ public class Minka {
 		medijumuSk = 0;
 		izsalkums = kungis();
 		this.siksnina = siksnina;
-		bilde = iesistitBildi(cels);
+		bilde = iestatitBildi(cels);
 	}
 	
 	//Metodes
@@ -36,11 +36,11 @@ public class Minka {
 		return rand.nextInt(5)+1;
 	}
 	
-	public ImageIcon iesistitBildi(String cels) {
+	public ImageIcon iestatitBildi(String cels) {
 		if(!cels.endsWith(".png"))
 			cels += ".png";
 		
-		URL resurss = getClass().getResource("/atteli"+cels);
+		URL resurss = getClass().getResource("/atteli/"+cels);
 		if(resurss != null)
 			return new ImageIcon(new ImageIcon(resurss).getImage().
 					getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -91,7 +91,7 @@ public class Minka {
 			JOptionPane.showMessageDialog(null,  "Zzz....", "Informācija",
 					JOptionPane.INFORMATION_MESSAGE);
 		}else {
-			JOptionPane.showMessageDiaLog(null, saimnieks + "! "+
+			JOptionPane.showMessageDialog(null, saimnieks + "! "+
 		 prieksmets + " man neder priekš gulēšanas! Šssš!",
 		 "Brīdinājums", JOptionPane.WARNING_MESSAGE);
 		}
@@ -101,7 +101,7 @@ public class Minka {
 		if(vecums < 20) {
 			vecums++;
 			bilde = iestatitBildi("kuka");
-			JOptionPane.showMessageDiaLog(null, vards + " vecums palielināts par vienu gadu!", 
+			JOptionPane.showMessageDialog(null, vards + " vecums palielināts par vienu gadu!", 
 					"Svinības", JOptionPane.INFORMATION_MESSAGE);
 		}else {
 			JOptionPane.showMessageDialog(null, "Sasniegts maksimālais vecums!",
@@ -117,12 +117,12 @@ public class Minka {
 		if((rand.nextInt(3)) == 0) {
 			medijumuSk++;
 			bilde = iestatitBildi("nokerts");
-			JOptionPane.showMessageDiaLog(null, "Medījums tika notverts!",
-					"Veiksme", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Medījums tika notverts!",
+					"Veiksme", JOptionPane.INFORMATION_MESSAGE, bilde);
 		}else {
 			bilde = iestatitBildi("aizlaidas");
 			JOptionPane.showMessageDialog(null,  "Medījums aizlaidās!", "Neveiksme",
-					JOptionPane.INFORMATION_MESSAGE);;
+					JOptionPane.INFORMATION_MESSAGE, bilde);
 		}
 	}
 }
